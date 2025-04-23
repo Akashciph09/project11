@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
-
+app.options('*', cors());
 // Connect to MongoDB with retry logic
 const connectWithRetry = async () => {
   const maxRetries = 5;
